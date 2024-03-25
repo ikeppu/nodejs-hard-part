@@ -9,6 +9,9 @@ const fs = require('node:fs/promises');
 
   stream.on('data', (chunk) => {
     console.log('---------');
+    // convert to string
+    // const numbers = chunk.toString('utf-8').split('  ');
+
     if (!streamWrite.write(chunk)) {
       console.log('PAUSED');
       stream.pause();

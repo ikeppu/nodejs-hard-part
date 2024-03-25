@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    .test {
+      color: red;
+    }
+  </style>
+  <body>
+    <h1>Scripting injection</h1>
+    <div class="">
+      <label for="injection"></label>
+      <input id="injection" type="text" />
+      <button id="updateBtn">Update</button>
+    </div>
+    <div id="insert"></div>
+    <script>
+      var injectionEl = document.querySelector('#injection');
+      var updateBtnEl = document.querySelector('#updateBtn');
+      var insertEl = document.querySelector('#insert');
+      updateBtnEl.addEventListener('click', (e) => {
+        // e.preventDefault();
+        console.log(injectionEl.value);
+
+        insertEl.insertAdjacentHTML('afterbegin', `${injectionEl.value}`);
+      });
+    </script>
+  </body>
+</html>
+<!-- Make safe all inputs  -->
+<!-- Make safe url  -->
+<!--  -->
